@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day Surprise</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #envelope {
+        display: none; /* Initially hidden */
+        cursor: pointer;
+        position: fixed;
+        width: 400px;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+    }
+    #message {
+        display: none;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        width: 50%;
+        height: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        flex-direction: column;
+    }
+    .background-image {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        background-size: cover;
+        height: auto;
+        transform: translateY(-50%);
+    }
+    .open-rose {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 35%;
+        color: #fff;
+        text-decoration: none;
+        font-size: 35px;
+        left: 40%;
+    }
+    .content {
+        padding: 20px;
+        text-align: center;
+        font-size: 30px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- <audio id="background-music" controls loop>
+        <source src="https://ogununlimited.com/wp-content/uploads/2024/02/perfect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> -->
+      
+    <img src="https://ogununlimited.com/wp-content/uploads/2024/02/roses.png" alt="Roses" class="background-image">
+    <a href="#" class="open-rose">Click here!</a>
+    <br><br>
+    <img id="envelope" src="https://ogununlimited.com/wp-content/uploads/2024/02/envelope.png" alt="Envelope">
+    <section class="content" id="message">
+        <p>Dear Denisa,</p>
+        <p>Will you be my Valentine?&nbsp;&nbsp;&nbsp;<img src="https://ogununlimited.com/wp-content/uploads/2024/02/rose.png" height="100px"></p>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="maybeBtn">Ofcourse</button>
+        </div>           
+      </section>
+    </div>
+
+<script>
+    const envelope = document.getElementById('envelope');
+    const message = document.getElementById('message');
+    const openRose = document.querySelector('.open-rose');
+    const backgroundMusic = document.getElementById('background-music');
+
+    setTimeout(function() {
+        openRose.style.display = 'block';
+    }, 2000); // Show "Click here!" link after 2 seconds
+
+    openRose.addEventListener('click', function() {
+        envelope.style.display = 'block';
+    });
+
+    envelope.addEventListener('click', function() {
+        message.style.display = 'flex';
+    });
+
+    message.addEventListener('click', function() {
+        message.style.display = 'none';
+    });
+
+    // Autoplay background music once user interacts with the page
+    document.addEventListener('click', function() {
+        backgroundMusic.play().catch(function(error) {
+            console.log('Failed to play audio:', error);
+        });
+    });
+    document.getElementById('yesBtn').addEventListener('click', function() {
+    alert('Yay! Looking forward to spending Valentine\'s Day with you!');
+    });
+
+    document.getElementById('maybeBtn').addEventListener('click', function() {
+    alert('Yay! Looking forward to spending Valentine\'s Day with you!');
+    });
+</script>
+</body>
+</html>
